@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>#EmdefesadoMCTI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta property="og:url"           content="http://www.colocardominio.site/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Em Defesa do MCTI" />
+    <meta property="og:description"   content="Site para presionar os senadores contra o fechamento do MCTI" />
+    <meta property="og:image"         content="http://www.colocardominio.site/nossa/imagem.jpg" />
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+    <script src="https://use.fontawesome.com/c3352ab717.js"></script>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="senado" ng-controller="MainCtrl">
+  <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.6";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <md-toolbar>
+      <div class="md-toolbar-tools" style="padding:10px;" >
+        <md-icon class="fa fa-flask"></md-icon>
+        <h2>
+          <span>Em defesa do MCTI</span>
+        </h2>
+        <span flex></span>
+        <a style="padding:10px;" href="https://twitter.com/intent/tweet?button_hashtag=EmDefesaDoMCTI" class="twitter-hashtag-button" data-related="cabelotaina">Tweet #EmDefesaDoMCTI</a>
+        <div style="padding:10px;" class="fb-share-button" data-href="https://facebook.com/cabelotaina" data-layout="button_count" data-mobile-iframe="true"></div>
+      </div>
+    </md-toolbar>
+    <!-- colocar menacismo de busca por nome, partido e tudo mais -->
+    <div ng-controller="MainCtrl" ng-cloak >
+      <md-input-container class="md-block">
+        <label><md-icon class="fa fa-search"></md-icon>Buscar Senador!</label>
+        <input ng-model="searchText"/>
+      </md-input-container>
+      <md-subheader class="md-no-sticky">Todos os Senadores da comissão</md-subheader>
+      <md-divider ></md-divider>
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="row" layout-wrap>
+          <md-card style="width:350px;" ng-repeat="senador in senadores  | filter:searchText" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{senador.nome}}</span>
+                <span class="md-subhead">Partido: {{senador.partido}}</span>
+              </md-card-title-text>
+              <md-card-title-media>
+                <div class="md-media-lg card-media">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Senador_Renan_Calheiros_Abril_2012.JPG/200px-Senador_Renan_Calheiros_Abril_2012.JPG" />
+                </div>
+              </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-href="mailto:{{senador.email}}" ><md-icon style="color: green;" class="fa fa-envelope fa-2x"></md-icon></md-button>
+              <md-button><md-icon style="color: #1dcaff;" class="fa fa-twitter fa-2x"></md-icon></md-button>
+              <md-button ng-href="{{senador.facebook}}" ><md-icon style="color: #3b5998;" class="fa fa-facebook-official fa-2x"></md-icon></md-button>
+            </md-card-actions>
+          </md-card>
+      </md-content>
+    </div>
+  </body>
+</html>
