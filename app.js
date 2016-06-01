@@ -7,7 +7,21 @@ angular.module('senado', ['ngMaterial'])
 .controller('MainCtrl', [
 '$scope',
 function($scope){
-
+  $scope.superSubject = function() {
+    return "Senad@r se posicione em defesa do MCTI!";
+  }
+  $scope.superBody = function() {
+    return "Senad@r, \n"+
+      "Viemos por meio desta mensagem pedir que vote contra o fechamento do MCTI.";
+  }
+  $scope.emails = function(senadores) {
+    var emails = 'contato@redelivre.org.br';
+    angular.forEach(senadores, function(senador) {
+      if ( 'renan.calheiros@senador.leg.br' != senador.email)
+        emails += ', '+senador.email;
+    }, emails);
+    return emails;
+  }
   $scope.subject = function(senador) {
     return "Senador "+senador.nome+" se posicione em defesa do MCTI!"
   }
@@ -27,7 +41,7 @@ function($scope){
     {
       nome: 'Renan Calheiros', 
       partido: 'PMDB', 
-      email: 'renan@senado.gov.br', 
+      email: 'renan.calheiros@senador.leg.br', 
       twitter: 'renancalheiros', 
       facebook: 'http://facebook.com/renancalheiros', 
       posicao: 'contrario',

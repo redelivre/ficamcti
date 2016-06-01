@@ -33,21 +33,20 @@
       js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.6";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    <md-toolbar>
+    <md-toolbar class="md-warn">
       <div class="md-toolbar-tools" style="padding:10px;" >
-        <h2>
+        <h1>
           <span class="fa fa-flask">Fica MCTI</span>
-        </h2>
+        </h1>
         <span flex></span>
-        <a style="padding:10px;" href="https://twitter.com/intent/tweet?button_hashtag=EmDefesaDoMCTI" class="twitter-hashtag-button" data-related="cabelotaina">Tweet #EmDefesaDoMCTI</a>
+        <a style="padding:10px;" href="https://twitter.com/intent/tweet?button_hashtag=EmDefesaDoMCTI" class="twitter-hashtag-button" data-related="cabelotaina">Tweet #FicaMCTI</a>
         <div style="padding:10px;" class="fb-share-button" data-href="https://facebook.com/cabelotaina" data-layout="button_count" data-mobile-iframe="true"></div>
         <div class="g-plus" data-action="share"></div>
       </div>
-      <div style=" width:20%;margin: 0 auto;" >
-        <md-button style="width:250px;height:65px" class="md-accent md-raised md-hue-1" ng-href="mailto:{{senador.email}}?Subject={{subject(senador)}}&Body={{body(senador)}}" ><h2><md-icon class="fa fa-envelope"></md-icon>Super Pressão!</h2></md-button>
+      <div style="width: 100%;text-align: center;" >
+        <md-button style="width:250px;height:65px" class="md-accent md-raised md-hue-1" ng-href="mailto:renan.calheiros@senador.leg.br?Subject={{superSubject()}}&Body={{supeBody()}}&bcc={{emails(senadores)}}" ><h2><md-icon class="fa fa-envelope"></md-icon>Super Pressão!</h2></md-button>
       </div>
     </md-toolbar>
-    <!-- colocar menacismo de busca por nome, partido e tudo mais -->
     <div ng-controller="MainCtrl" ng-cloak >
       <br>
       <md-input-container class="md-block">
@@ -58,7 +57,7 @@
       <md-divider ></md-divider>
       <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="100" layout="row" layout-wrap>
-          <md-card style="width:300px;" ng-repeat="senador in senadores  | filter:searchText" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+          <md-card style="width:310px;" ng-repeat="senador in senadores  | filter:searchText" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
             <md-card-title>
               <md-card-title-text>
                 <span class="md-headline">{{senador.nome}}</span>
@@ -70,10 +69,19 @@
                 </div>
               </md-card-title-media>
             </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-href="mailto:{{senador.email}}?Subject={{subject(senador)}}&Body={{body(senador)}}" ><md-icon style="color: green;" class="fa fa-envelope fa-2x"></md-icon></md-button>
-              <md-button ng-href="https://twitter.com/intent/tweet?hashtags=EmDefesaDoMCTI&screen_name={{senador.twitter}}"><md-icon style="color: #1dcaff;" class="fa fa-twitter fa-2x"></md-icon></md-button>
-              <md-button ng-href="{{senador.facebook}}" ><md-icon style="color: #3b5998;" class="fa fa-facebook-official fa-2x"></md-icon></md-button>
+            <md-card-actions>
+              <md-button ng-href="mailto:{{senador.email}}?Subject={{subject(senador)}}&Body={{body(senador)}}" >
+                <md-icon style="color: green;" class="fa fa-envelope fa-2x"></md-icon>
+                <md-tooltip md-direction="botton">Enviar Mensagem!</md-tooltip>
+              </md-button>
+              <md-button ng-href="https://twitter.com/intent/tweet?hashtags=EmDefesaDoMCTI&screen_name={{senador.twitter}}">
+                <md-icon style="color: #1dcaff;" class="fa fa-twitter fa-2x"></md-icon>
+                <md-tooltip md-direction="botton">Faça um Twett!</md-tooltip>
+              </md-button>
+              <md-button ng-href="{{senador.facebook}}" >
+                <md-icon style="color: #3b5998;" class="fa fa-facebook-official fa-2x"></md-icon>
+                <md-tooltip md-direction="botton">Página no Facebook!</md-tooltip>
+              </md-button>
             </md-card-actions>
           </md-card>
       </md-content>
