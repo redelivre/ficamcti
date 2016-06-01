@@ -17,9 +17,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
     <script src="https://use.fontawesome.com/c3352ab717.js"></script>
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-    </script>
 
     <!-- Angular Material Library -->
     <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
@@ -36,26 +35,30 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <md-toolbar>
       <div class="md-toolbar-tools" style="padding:10px;" >
-        <md-icon class="fa fa-flask"></md-icon>
         <h2>
-          <span>Em defesa do MCTI</span>
+          <span class="fa fa-flask">Fica MCTI</span>
         </h2>
         <span flex></span>
         <a style="padding:10px;" href="https://twitter.com/intent/tweet?button_hashtag=EmDefesaDoMCTI" class="twitter-hashtag-button" data-related="cabelotaina">Tweet #EmDefesaDoMCTI</a>
         <div style="padding:10px;" class="fb-share-button" data-href="https://facebook.com/cabelotaina" data-layout="button_count" data-mobile-iframe="true"></div>
+        <div class="g-plus" data-action="share"></div>
+      </div>
+      <div style=" width:20%;margin: 0 auto;" >
+        <md-button style="width:250px;height:65px" class="md-accent md-raised md-hue-1" ng-href="mailto:{{senador.email}}?Subject={{subject(senador)}}&Body={{body(senador)}}" ><h2><md-icon class="fa fa-envelope"></md-icon>Super Pressão!</h2></md-button>
       </div>
     </md-toolbar>
     <!-- colocar menacismo de busca por nome, partido e tudo mais -->
     <div ng-controller="MainCtrl" ng-cloak >
+      <br>
       <md-input-container class="md-block">
-        <label><md-icon class="fa fa-search"></md-icon>Buscar Senador!</label>
+        <label><md-icon class="fa fa-search"></md-icon>Buscar Senad@r por nome ou posicionamento {favoravel, contra, indeciso}!</label>
         <input ng-model="searchText"/>
       </md-input-container>
       <md-subheader class="md-no-sticky">Todos os Senadores da comissão</md-subheader>
       <md-divider ></md-divider>
       <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="100" layout="row" layout-wrap>
-          <md-card style="width:350px;" ng-repeat="senador in senadores  | filter:searchText" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+          <md-card style="width:300px;" ng-repeat="senador in senadores  | filter:searchText" md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
             <md-card-title>
               <md-card-title-text>
                 <span class="md-headline">{{senador.nome}}</span>
@@ -68,12 +71,15 @@
               </md-card-title-media>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-href="mailto:{{senador.email}}" ><md-icon style="color: green;" class="fa fa-envelope fa-2x"></md-icon></md-button>
-              <md-button><md-icon style="color: #1dcaff;" class="fa fa-twitter fa-2x"></md-icon></md-button>
+              <md-button ng-href="mailto:{{senador.email}}?Subject={{subject(senador)}}&Body={{body(senador)}}" ><md-icon style="color: green;" class="fa fa-envelope fa-2x"></md-icon></md-button>
+              <md-button ng-href="https://twitter.com/intent/tweet?hashtags=EmDefesaDoMCTI&screen_name={{senador.twitter}}"><md-icon style="color: #1dcaff;" class="fa fa-twitter fa-2x"></md-icon></md-button>
               <md-button ng-href="{{senador.facebook}}" ><md-icon style="color: #3b5998;" class="fa fa-facebook-official fa-2x"></md-icon></md-button>
             </md-card-actions>
           </md-card>
       </md-content>
     </div>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>
