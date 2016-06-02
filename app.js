@@ -1,7 +1,7 @@
 angular.module('senado', ['ngMaterial'])
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('pink')
+    .primaryPalette('blue')
     .accentPalette('orange');
 })
 .controller('MainCtrl', [
@@ -12,7 +12,7 @@ function($scope){
   }
   $scope.superBody = function() {
     return "Senador(a), \n"+
-      "Vimos por meio desta mensagem pedir que V. Exca. vote contra a extinÃ§Ã£o do MinistÃ©rio da CiÃªncia, Tecnologia e InovaÃ§Ã£o - MCTI.";
+      "Vimos por meio desta mensagem pedir que V. Exca. vote contra a extinção do Ministério da Ciência, Tecnologia e Inovação - MCTI.";
   }
   $scope.emails = function(senadores) {
     var emails = 'contato@redelivre.org.br';
@@ -27,7 +27,7 @@ function($scope){
   }
   $scope.body = function(senador) {
     return "Senador(a) "+senador.nome+", \n"+
-           "Vimos por meio desta mensagem pedir que V. Exca. vote contra a extinÃ§Ã£o do MinistÃ©rio da CiÃªncia, Tecnologia e InovaÃ§Ã£o - MCTI.";
+           "Vimos por meio desta mensagem pedir que V. Exca. vote contra a extinção do Ministério da Ciência, Tecnologia e Inovação - MCTI.";
   }
   $scope.senadores = [
     {
@@ -36,18 +36,18 @@ function($scope){
       uf: 'RS',
       foto: 'lasier_martins',
       email: 'lasier.martins@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://www.facebook.com/LasierMartinsOficial', 
+      twitter: 'lasierm', 
+      facebook: 'https	://www.facebook.com/LasierMartinsOficial', 
       posicao: '#',
     },
     {
-      nome: 'HÃ©lio JosÃ©', 
+      nome: 'Hélio José', 
       partido: 'PMDB', 
       uf: 'DF',
       foto: 'helio_jose',
       email: 'heliojose@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#', 
+      twitter: 'senador_helio', 
+      facebook: 'https://www.facebook.com/senadorheliojose', 
       posicao: '#',
     },
     {
@@ -56,8 +56,8 @@ function($scope){
       uf: 'BA',
       foto: 'walter_pinheiro',
      email: 'pinheiro@senador.gov.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#', 
+      twitter: 'pinheirosenador', 
+      facebook: 'https://www.facebook.com/pinheiro.senador', 
       posicao: '#',
     },
     {
@@ -66,8 +66,8 @@ function($scope){
       uf:'CE',
       foto: 'angela_portela',
       email: 'angela.portela@senadora.leg.br', 
-      twitter: '#', 
-      facebook: 'http://www.facebook.com/angelaportela13',
+      twitter: 'angelaportelarr', 
+      facebook: 'https://www.facebook.com/angelaportela13',
       posicao: '#',
     },
     {
@@ -76,8 +76,8 @@ function($scope){
       uf:'RO',
       foto: 'ivo_cassol',
       email: 'ivo.cassol@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#', 
+      twitter: 'senadorcassol', 
+      facebook: 'https://www.facebook.com/IVO-CASSOL-1481362108788369', 
       posicao: '#',
     },
     {
@@ -87,37 +87,37 @@ function($scope){
       foto: 'valdir_raupp',
       email: 'valdir.raupp@senador.leg.br', 
       twitter: 'senadorraupp', 
-      facebook: 'http://facebook.com/#', 
+      facebook: 'https://www.facebook.com/senadorrauppro', 
       posicao: '#',
     },
     {
-      nome: 'JoÃ£o Alberto Souza', 
+      nome: 'João Alberto Souza', 
       partido: 'PMDB',
       uf: 'MA',
       foto: 'joao_alberto_souza',
       email: 'joao.alberto.souza@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#', 
+      twitter: 'senjoaoalberto', 
+      facebook: 'https://www.facebook.com/joaoalbertosenador', 
       posicao: '#',
     },
     {
-      nome: 'SÃ©rgio PetecÃ£o', 
+      nome: 'Sérgio Petecão', 
       partido: 'PSD', 
       uf:'AC',
       foto: 'sergio_petecao',
       email: 'sergio.petecao@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#',
+      twitter: 'senadorpetecao', 
+      facebook: 'https://www.facebook.com/sergiopetecao',
       posicao: '#',
     },
     {
       nome: 'Omar Aziz', 
       partido: 'PSD', 
       uf:'AM',
-      foto: 'omam_aziz',
+      foto: 'omar_aziz',
       email: 'omar.aziz@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#',
+      twitter: 'omarazizpsd', 
+      facebook: 'https://www.facebook.com/OmarAzizPSD',
       posicao: '#',
     },
     {
@@ -126,8 +126,8 @@ function($scope){
       uf:'AP',
       foto: 'davi_alcolumbre',
       email: 'davi.alcolumbre@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#',
+      twitter: 'davialcolumbre', 
+      facebook: 'https://www.facebook.com/davi.alcolumbre',
       posicao: '#',
     },
     {
@@ -136,8 +136,8 @@ function($scope){
       uf:'SP',
       foto: 'aloysio_nunes',
       email: 'aloysionunes.ferreira@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://facebook.com/#',
+      twitter: 'aloysio_nunes', 
+      facebook: 'https://www.facebook.com/aloysionunes',
       posicao: '#',
     },
     {
@@ -147,17 +147,17 @@ function($scope){
       foto: 'flexa_ribeiro',
       email: 'flexa.ribeiro@senador.leg.br', 
       twitter: 'senadorflexa', 
-      facebook: 'http://www.facebook.com/senadorflexaribeiro',
+      facebook: 'https://www.facebook.com/senadorflexaribeiro',
       posicao: '#',
     },
     {
       nome: 'Cristovam Buarque', 
       partido: 'PPS', 
       uf:'DF',
-      foto: 'cristovam_buqrque',
+      foto: 'cristovam_buarque',
       email: 'cristovam.buarque@senador.leg.br', 
       twitter: 'sen_cristovam', 
-      facebook: 'http://www.facebook.com/Cristovam.Buarque',
+      facebook: 'https://www.facebook.com/Cristovam.Buarque',
       posicao: '#',
     },
     {
@@ -167,17 +167,17 @@ function($scope){
       foto: 'randolfe_rodrigues',
       email: 'randolfe.rodrigues@senador.leg.br', 
       twitter: 'randolfeap', 
-      facebook: 'http://www.facebook.com/randolferodrigues',
+      facebook: 'https://www.facebook.com/randolferodrigues',
       posicao: '#',
     },
     {
       nome: 'Marcelo Crivella', 
       partido: 'PRB', 
       uf:'RJ',
-      foto: 'marcelo_crivela',
+      foto: 'marcelo_crivella',
       email: 'marcelo.crivella@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://www.facebook.com/#',
+      twitter: 'mcrivella', 
+      facebook: 'https://www.facebook.com/marcelocrivella',
       posicao: '#',
     },
     {
@@ -186,8 +186,8 @@ function($scope){
       uf:'SE',
       foto: 'eduardo_amorim',
       email: 'eduardo.amorim@senador.leg.br', 
-      twitter: '#', 
-      facebook: 'http://www.facebook.com/#',
+      twitter: 'eduardoamorimse', 
+      facebook: 'https://www.facebook.com/eduardoamorim20',
       posicao: '#',
     },
 
